@@ -51,3 +51,6 @@ appserver_dependencies:
   - apparmor-utils
   - redis-server
   - supervisor
+
+# Enable Tor over SSH by default
+enable_ssh_over_tor: true
