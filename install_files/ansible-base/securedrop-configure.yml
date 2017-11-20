@@ -110,6 +110,11 @@
       default: ""
       private: yes
 
+    - name: enable_ssh_over_tor
+      prompt: Enable SSH over Tor - alternatively ssh over local net
+      default: "true"
+      private: no
+
   pre_tasks:
     - debug:
         msg: >-
@@ -175,6 +180,8 @@
           var_value: "{{ sasl_password }}"
         - var_name: securedrop_app_https_on_source_interface
           var_value: "{{ securedrop_app_https_on_source_interface | bool}}"
+        - var_name: enable_ssh_over_tor
+          var_value: "{{ enable_ssh_over_tor | bool}}"
 
 - name: Validate site-specific information.
   hosts: localhost
